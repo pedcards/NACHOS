@@ -118,8 +118,9 @@ Return
 initClipSub:									;*** Initialize XML files
 {
 	if !IsObject(t:=y.selectSingleNode("//root")) {		; if Y is empty,
-		y.addElement("root")					; then create it.
-		y.addElement("lists", "root")			; space for some lists
+		y.addElement("root")							; then create it.
+		y.addElement("lists", "root")					; space for some lists
+		eventlog("Empty list. Created Root, Lists")
 	}
 	FormatTime, timenow, A_Now, yyyyMMddHHmm
 
@@ -467,6 +468,15 @@ readStorkList:
 	Writeout("/root/lists","stork")
 	Eventlog("Stork List updated.")
 Return
+}
+
+parsePnProv(ByRef txt) {
+	str := strX(txt,"",0,0, " ",1,1,n)
+	svc := strX(str,"",0,0, "/",1,1)
+	prov := strX(str,"/",1,1, "/",1,1,nn)
+	dt := substr(str,nn+1)
+	txt := substr(txt,n)
+	return {svc:trim(svc), prov:trim(prov), date:trim(dt)}
 }
 
 WriteOut(path,node) {
