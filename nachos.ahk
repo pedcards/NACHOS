@@ -27,7 +27,8 @@ servfold := "patlist"
 chipotlePath := "\\childrens\files\HCChipotle"
 storkPath := "\\childrens\files\HCCardiologyFiles\Fetal"
 forecastPath := "\\childrens\files\HCSchedules\Electronic Forecast"
-if (InStr(A_WorkingDir,"Ahk")) {
+if (InStr(A_WorkingDir,"Ahk-TEST")) {
+; ======================^^^^^^^^ remove "-TEST" when the server sources actually exist
 	tmp:=CMsgBox("Data source","Data from which system?","&Local|&Test Server|Production","Q","V")
 	if (tmp="Local") {
 		isLocal := true
