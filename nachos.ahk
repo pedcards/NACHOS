@@ -33,11 +33,11 @@ if (InStr(A_WorkingDir,"Ahk")) {
 		isLocal := true
 		;FileDelete, currlist.xml
 		storkPath := "files\Fetal"
-		forecastPath := "files\Electronic Forecast"
+		chipotlePath := "files\Chipotle"
 	}
 	if (tmp="Test Server") {
 		isLocal := false
-		servfold := "testlist"
+		servfold := "testnachos"
 		;FileDelete, currlist.xml
 	}
 	if (tmp="Production") {
