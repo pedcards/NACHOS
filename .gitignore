@@ -1,47 +1,37 @@
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
+.gitignore
+.currlock
+.dropbox.attr
+files/
+backup/
+logs/
 
-# Folder config file
-Desktop.ini
+*.xml
+*.docx
+*.ico
+*.png
+*.clip
+*.ppk
+*.bak
+*.exe
+*.rtf
+*.mm
+*.tmp
+*.csv
+*.zip
+*.xlsx
 
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
-
-# Windows Installer files
-*.cab
-*.msi
-*.msm
-*.msp
-
-# Windows shortcuts
-*.lnk
-
-# =========================
-# Operating System Files
-# =========================
-
-# OSX
-# =========================
-
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# Thumbnails
-._*
-
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
+AEI.ahk
+ActiveWindowInfo.ahk
+CMsgBox.ahk
+Class_LV_Colors.ahk
+Encrypt.ahk
+EntryForm.ahk
+StrX.ahk
+TC_EX.ahk
+TC_EX_Sample.ahk
+XConfig.ahk
+enc.ahk
+sift3.ahk
+testcols.ahk
+test.ahk
+xml.ahk
