@@ -50,6 +50,7 @@ if (ObjHasValue(admins,user)) {
 	isAdmin := true
 }
 
+MainTitle1 := "NACHOS"
 Docs := Object()
 outGrps := []
 outGrpV := {}
@@ -90,7 +91,7 @@ SetTimer, SeekWordErr, 250
 initDone = true
 eventlog(">>>>> Session started.")
 Gosub GetIt
-;~ Gosub MainGUI
+Gosub MainGUI
 WinWaitClose, NACHOS main
 ;~ Gosub SaveIt
 eventlog("<<<<< Session completed.")
@@ -127,6 +128,55 @@ initClipSub:									;*** Initialize XML files
 
 	Return
 }
+
+MainGUI:
+{
+	RefreshCurr(1)
+	Gui, main:Default
+	Gui, +AlwaysOnTop
+	Gui, Color, Maroon
+	
+	Gui, Add, Text, x200 Section, Mother's name:
+	Gui, Add, Text, , Baby's name:
+	Gui, Add, Text, , Mother's SCH MRN#:
+	Gui, Add, Text, , Mother's UW MRN#:
+	Gui, Add, Text, , EDC:
+	Gui, Add, Text, , Planned del date:
+	Gui, Add, Text, , Mode of delivery:
+	Gui, Add, Text, , Delivery hospital:
+	Gui, Add, Text, , Home:
+	Gui, Add, Text, , Diagnosis:
+	Gui, Add, Text, , Comments:
+	
+	Gui, Add, Edit, w240 ys-2 v, 
+	Gui, Add, Edit, w240, 
+	Gui, Add, Edit, w240, 
+	Gui, Add, Edit, w240, 
+	Gui, Add, Edit, w240, 
+	Gui, Add, Edit, w240, 
+	Gui, Add, Edit, w240, 
+	Gui, Add, Edit, w240, 
+	Gui, Add, Edit, w240, 
+	Gui, Add, Edit, w240, 
+	Gui, Add, Edit, w240, 
+	
+	Gui, Show, , % "NACHOS main" (servfold="testlist" ? " TEST" : "")			; draw initial GUI
+	
+Return	
+}
+
+MainGuiClose:
+	Gui, main:hide
+	MsgBox, 308, Confirm, % "Do you want to quit without committing changes?`n`nYes = Close without saving.`nNo = Try again."
+	IfMsgBox No
+	{
+		Gui, main:Show
+		return
+	}
+	FileDelete .currlock
+	eventlog("<<<<< Session closed by user.")
+ExitApp
+
 
 Sort2D(Byref TDArray, KeyName, Order=1) {
 /*	modified from https://sites.google.com/site/ahkref/custom-functions/sort2darray	
